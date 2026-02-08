@@ -47,7 +47,8 @@ app.layout = html.Div(
     children=[
 
         html.H1(
-            'Sales Before And After 15th Jan 2021',
+            id="header",
+            children='Sales Before And After 15th Jan 2021',
             style={
                 'textAlign': 'center',
                 'color': colors['text']
@@ -105,7 +106,7 @@ def update_graph(selected_region):
             .copy()
         )
     else:
-        filtered_df = df[df["Region"] == selected_region]
+        filtered_df = df[df["Region"] == selected_region].copy()
 
     cutoff_date = pd.to_datetime("2021-01-15")
 
